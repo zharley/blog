@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "This is not a blog"
-categories: jekyll update
+categories: inception
 ---
 In attempting to choose a backend for this site, I experienced a kind of mental paralysis induced by too many options called [The Paradox of Choice](http://en.wikipedia.org/wiki/The_Paradox_of_Choice) after a famous book by that title. The phenomenon is also called [overchoice](http://en.wikipedia.org/wiki/Overchoice), a great word coined in [Future Shock](http://en.wikipedia.org/wiki/Future_Shock), another book I should read.
 
