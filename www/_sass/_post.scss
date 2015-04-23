@@ -1,0 +1,61 @@
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+
+    p {
+        a {
+            img {
+                display: inline-block;
+                text-align: center;
+                max-width: 400px;
+                height: auto;
+                padding: 4px;
+                line-height: 1.42857;
+                background-color: #FFF;
+                border: 1px solid #DDD;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out 0s;        
+            }
+        }
+    }
+}
