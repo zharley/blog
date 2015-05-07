@@ -3,9 +3,14 @@
 ---
 @charset "utf-8";
 
+// https://color.adobe.com/create/color-wheel/
+// https://color.adobe.com/create/color-wheel/?base=2&rule=Complementary&selected=4&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.6196078431372549,0.5479364326375599,0.4274509803921568,0.9921568627450981,0.9921568627450981,0.9921568627450981,1,0.9502688172042932,0.8666666666666667,0.11372549019607846,0.47254901960768,0.8313725490196079,0.788235294117647,0.8941176470588236,1&swatchOrder=0,1,2,3,4
+$color-a: #9E8C6D;
+$color-b: #FDFDFD;
+$color-c: #FFF2DD;
+$color-d: #1D77D4;
+$color-e: #C9E4FF;
 
-
-// Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
@@ -14,9 +19,6 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
@@ -26,8 +28,6 @@ $content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
-
-
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
@@ -41,7 +41,6 @@ $on-laptop:        800px;
         @content;
     }
 }
-
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)

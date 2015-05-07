@@ -2,7 +2,7 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
+    border-top: 5px solid $color-a;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
@@ -45,7 +45,7 @@
         position: absolute;
         top: 9px;
         right: 30px;
-        background-color: $background-color;
+        background-color: $color-b;
         border: 1px solid $grey-color-light;
         border-radius: 5px;
         text-align: right;
