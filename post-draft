@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+def get_pick(count)
+  prompt = "=> Pick one or hit ^C to cancel [1-#{count}]: "
+  pick = nil
+
+  while pick.nil? do
+    print prompt
+    pick = STDIN.gets.chomp.to_i
+    pick = nil if pick < 1 or pick > count
+  end
+
+  pick
+end
+
+drafts = Dir["www/_drafts/*"]
+dir = "www/_posts"
+
+# List drafts
+puts "=> Post which draft?"
+count = 0
+for draft in drafts
+  count += 1
+  puts "%2d. %s" % [ count, draft ]
+end
+
+# Get selection
+pick ||= get_pick(count)
+pick = pick.to_i
+raise "Invalid pick" if pick < 1 || pick > count
+draft = drafts[pick - 1]
+
+# Generate new filename
+datestamp = Time.now.strftime("%Y-%m-%d")
+filename = datestamp + "-" + File.split(draft).last
+post = File.join(dir, filename)
+
+# Move the file to its new location
+system "mv #{draft} #{post}"
+puts "=> Moved #{draft} to #{post}"

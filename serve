@@ -1,0 +1,28 @@
+#! /bin/bash
+set -e
+
+# Custom port
+MY_PORT=4001
+
+# Some colours
+MY_COLOR_NORMAL='\033[0m'
+MY_COLOR_YELLOW='\033[0;33m'
+MY_COLOR_BOLD_YELLOW='\033[1;33m'
+MY_COLOR_UNDERLINE_CYAN='\033[4;36m'
+
+# Show drafts by default (when no parameter is given)
+if [ -z "$1" ]; then
+    MY_DRAFTS=" --draft"
+fi
+
+echo -ne "=> ${MY_COLOR_YELLOW}Serving Jekyll locally"
+if [ -n "$MY_DRAFTS" ]; then
+    echo -ne " $MY_COLOR_BOLD_YELLOW(showing drafts)"
+fi
+echo -e "$MY_COLOR_NORMAL"
+
+echo -e "=> See: ${MY_COLOR_UNDERLINE_CYAN}http://127.0.0.1:$MY_PORT/$MY_COLOR_NORMAL"
+
+cd www
+
+jekyll serve --port $MY_PORT$MY_DRAFTS
