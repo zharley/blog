@@ -3,11 +3,11 @@ layout:     post
 title:      "Creating this site with Jekyll"
 categories: 
 ---
-### Getting started
-
 Creating a site with [Jekyll](http://jekyllrb.com/) is easy, once you've done the hard work of [selecting it from the bevy of other options]({% post_url 2015-04-09-this-is-not-a-blog %}). The main prerequisites are [Ruby](http://www.ruby-lang.org/) (a.k.a. the best programming language in the world) and [Rubygems](http://rubygems.org/), its package manager.
 
-However, there is one snag. The [Jekyll instructions](http://jekyllrb.com/docs/installation/) say:
+### Getting started
+
+The [Jekyll instructions](http://jekyllrb.com/docs/installation/) say:
 
 > at the terminal prompt, simply run the following command to install Jekyll
 
