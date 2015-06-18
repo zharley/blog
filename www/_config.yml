@@ -1,8 +1,8 @@
 # Site settings
 title: Script everything
 description: > # this means to ignore newlines until "baseurl:"
-  This is an experimental site. I don't know what it is for yet, but 
-  it may contain things that are interesting to me.
+  The purpose of this site is evolving. But it seems
+  to be related to programming and scriptifying whenever possible.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://zenonharley.com" # the base hostname & protocol for your site
 twitter_username: zenonharley
