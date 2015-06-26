@@ -1,18 +1,5 @@
 #!/usr/bin/env ruby
-
-# @see http://apidock.com/rails/ActiveSupport/Inflector/parameterize
-def parameterize(string, separator = '-')
-  # Turn unwanted chars into the separator
-  string = string.gsub(/[^A-Za-z0-9\-_]+/, separator)
-  unless separator.nil? || separator.empty?
-    re_separator = Regexp.escape(separator)
-    # No more than one of the separator in a row.
-    string.gsub!(/#{re_separator}{2,}/, separator)
-    # Remove leading/trailing separator.
-    string.gsub!(/^#{re_separator}|#{re_separator}$/, '')
-  end
-  string.downcase
-end
+require 'shellwords'
 
 # Check that a parameter (title) has been supplied
 if ARGV.empty?
@@ -22,6 +9,7 @@ end
 
 # Combine all arguments, forgiving lack of quotes around title
 title = ARGV.join(" ");
+parameterized_title = `./parameterize #{title.shellescape}`.chomp
 
 # Target directory for drafts
 dir = "www/_drafts"
@@ -30,7 +18,7 @@ dir = "www/_drafts"
 format = "markdown"
 
 # Build draft filename within target directory
-path = File.join(dir, parameterize(title) + '.' + format)
+path = File.join(dir, parameterized_title + '.' + format)
 
 # Check that target directory exists
 unless Dir.exist?(dir)

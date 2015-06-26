@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+#
+# @see http://apidock.com/rails/ActiveSupport/Inflector/parameterize
+def parameterize(string, separator = '-')
+  # Turn unwanted chars into the separator
+  string = string.gsub(/[^A-Za-z0-9\-_]+/, separator)
+  unless separator.nil? || separator.empty?
+    re_separator = Regexp.escape(separator)
+    # No more than one of the separator in a row.
+    string.gsub!(/#{re_separator}{2,}/, separator)
+    # Remove leading/trailing separator.
+    string.gsub!(/^#{re_separator}|#{re_separator}$/, '')
+  end
+  string.downcase
+end
+
+# Check that parameters are given
+if ARGV.empty?
+  puts "Usage: #{File.basename($0)} Some string to be parameterized"
+  exit 1
+end
+
+input = ARGV.join(" ");
+puts parameterize(input)
