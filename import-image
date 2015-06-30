@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+
+# needs an argument
+if ARGV.size < 2
+  puts "Usage: #{File.basename($0)} /path/to/some/image.png 'Alt tag and explanation'"
+  exit 1
+end
+
+source = ARGV[0]
+alt = ARGV[1]
+parameterized_alt = `./parameterize #{alt.shellescape}`.chomp
+
+destination = File.join([
+  'www',
+  'assets',
+  'images',
+  Time.now.strftime('%Y-%m-%d-%H%M%S') + '-' + parameterized_alt + File.extname(source)
+])
+
+system("mv #{source.shellescape} #{destination.shellescape}")
+
+path = destination.sub(/^www/, '')
+
+if File.exists?(destination)
+  puts "=> Image moved to: #{destination}"
+  puts "![#{alt}](#{path} \"#{alt}\")"
+  puts "[![#{alt}](#{path} \"#{alt}\")](#{path})"
+else
+  puts "=> Expected to find image: #{destination}"
+end
