@@ -12,7 +12,7 @@ url = ARGV[0]
 filename = ARGV[1]
 width = ARGV[2] || 1024
 height = ARGV[3] || 768
-seconds = ARGV[4].to_i
+seconds = ARGV[4].to_i || 5
 
 # File should not exist
 if File.exist? filename

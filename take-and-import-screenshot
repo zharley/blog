@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'shellwords'
+
+# needs an argument
+if ARGV.size < 2
+  puts "Usage: #{File.basename($0)} url 'Alt tag and explanation'"
+  exit 1
+end
+
+url = ARGV[0]
+alt = ARGV[1]
+filename = "screenshot-" + Time.now.strftime('%Y-%m-%d-%H%M%S') + '.png'
+
+unless system("./take-screenshot #{url.shellescape} #{filename.shellescape}")
+  puts "=> Failed to take screenshot"
+  exit 1
+end
+
+unless system("./import-image #{filename.shellescape} #{alt.shellescape}")
+  puts "=> Failed to import screenshot"
+  exit 1
+end
