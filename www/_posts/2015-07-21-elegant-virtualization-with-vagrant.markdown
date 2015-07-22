@@ -15,7 +15,7 @@ Attempting to coerce your laptop to act like it's 2008 (when D6 was released) ma
 
 Of course, this is where virtualization software like [VirtualBox](https://www.virtualbox.org/) comes in handy. You can emulate **Ubuntu 12.04** by fetching the [appropriate ISO](http://releases.ubuntu.com/precise/ubuntu-12.04.5-server-i386.iso) and [setting up a VM using VirtualBox](http://askubuntu.com/questions/142549/how-to-install-ubuntu-on-virtualbox). Then it's simply a matter of installing and configuring [Apache](https://www.apache.org/), [MySQL](https://www.mysql.com/) and [PHP](http://php.net/) (i.e. a classic [LAMP](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) server).
 
-This approach is satisfactory, but in practice requires enough effort that you won't want to do it again. **Vagrant** offers a more reproducible, reliable and shareable methodology.
+This approach is satisfactory, but in practice requires enough effort that you won't want to do it again soon. By contrast, **Vagrant** offers a reproducible, reliable and shareable methodology.
 
 ### Introducing Vagrant
 
@@ -324,7 +324,7 @@ If you want to proceed with the installation, you'll need to create a database:
 MY_SQL_COMMAND="CREATE DATABASE drupal; \
                 GRANT ALL ON drupal.* TO drupal@localhost \
                 IDENTIFIED BY 'password';"
-vagrant ssh -c "mysql -u root -e '$MY_SQL_COMMAND'"
+vagrant ssh -c "mysql -u root -e \"$MY_SQL_COMMAND\""
 {% endhighlight %}
 
 This creates a MySQL user called `drupal` and grants it all permissions on database called `drupal`, authenticated with an **insecure** password `password`. If you want to, you can proceed with the instructions in the browser to complete the setup of Drupal.
@@ -353,7 +353,7 @@ sudo DEBIAN_FRONTEND=noninteractive \
 MY_SQL_COMMAND="CREATE DATABASE drupal; \
                 GRANT ALL ON drupal.* TO drupal@localhost \
                 IDENTIFIED BY 'password';"
-mysql -u root -e '$MY_SQL_COMMAND'
+mysql -u root -e "$MY_SQL_COMMAND"
 
 # Restart Apache
 /etc/init.d/apache2 restart
