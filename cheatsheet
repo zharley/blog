@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'jekyll'
+
+# @see http://stackoverflow.com/questions/18408873/how-to-call-jekyll-commands-from-ruby
+conf = Jekyll.configuration({
+  source: 'www',
+  destination: 'www/_site'
+})
+site = Jekyll::Site.new(conf)
+site.process
+
+posts = site.posts
+
+# Iterate over posts
+for post in posts
+  puts "[#{post.title}]({% post_url #{post.name.chomp('.markdown')} %})"
+end
