@@ -43,6 +43,12 @@
     }
 
     p {
+        img {
+          -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+          -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+          box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+        }
+
         a {
             img {
                 display: inline-block;
@@ -50,7 +56,6 @@
                 height: auto;
                 line-height: 1.42857;
                 background-color: #FFF;
-                border: 1px solid #DDD;
 
                 @include min-media-query($on-laptop) {
                   padding: 4px;
